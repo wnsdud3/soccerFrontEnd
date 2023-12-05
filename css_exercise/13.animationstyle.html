@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션 스타일</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+        }
+        .div-class {
+            background-color: salmon;
+            animation-name: tranAni ;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes tranAni {
+            0% {
+                background-color: yellowgreen;
+            }
+            100% {background-color: orange;
+            border-radius: 50%;
+        transform: rotateZ(360deg);}
+        }
+        .div2-class {
+            background-color: black;
+            margin: 100px;
+            animation-name: rainbowAni;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes rainbowAni {
+            0% {
+                background-color: red;
+            }
+            15% {
+                background-color: orange;
+            }
+            30% {
+                background-color: yellow;
+            }
+            45% {
+                background-color: green;
+            }
+            60% {
+                background-color: blue;
+            }
+            75% {
+                background-color: navy;
+            }
+            100% {
+                background-color: indigo;
+            }
+        }
+        img {
+            width: 300px;
+            margin: 100px;
+        }
+        @keyframes imgAni {
+            0% {
+                border: 3px dashed black;
+            }
+            50% {
+                transform: rotateZ(360deg);
+                border-radius: 60;
+            }
+            100% {
+                border: 5px solid yellow;
+            }
+        }
+        img:hover {
+            animation-name: imgAni;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-direction: reverse;
+            /* normal, reverse, alternate, alternate reverse */
+        }
+    </style>
+</head>
+<body>
+    <h1>애니메이션</h1>
+    <div class="div-class"></div><br>
+    <div class="div2-class"></div><br><br><br>
+    <img src="../image/tangerines.jpg" alt="">
+</body>
+</html>
