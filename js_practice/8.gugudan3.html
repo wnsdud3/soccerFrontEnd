@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단 3</title>
+    <style>
+        table {
+            float: left;
+            margin: 20px;        }
+        table,th {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+        td {
+            border: 1px dotted #222;
+        }
+        th,td {
+            padding: 10px 15px;
+        }
+        th {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 1. 구구단  출력
+        // 2. div안에 넣은것처럼 table, tr, th, td를 이용해서 결과값을 감싸준다.
+        for(var i =2;i <10;i++) {
+            document.write("<table>")
+            document.write("<tr><th><h3>"+i+"단</h3></th></tr>");
+            for(var j = 1;j<10; j++){
+            document.write("<tr><td>" +i +"x" + j + "="+i*j+"</td></tr>"); 
+                }
+                document.write("</div>")
+            }
+        
+        
+        
+        
+        document.write("<table>")
+            document.write("<tr>")
+        
+        document.write("<td>2 x 1")
+            document.write("</td>")
+
+        document.write("</tr>")
+            document.write("</table>")
+    </script>
+</body>
+</html>

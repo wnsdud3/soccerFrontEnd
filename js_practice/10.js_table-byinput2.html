@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블 만들기2</title>
+    <style>
+        table, td {
+            border: 1px solid #222;
+            border-collapse: collapse;
+        }
+        td {
+            border: 1px solid /#222;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>자리 배치도</h1>
+    <script>
+        // 1. document.write를 이용해서 테이블 만들기
+        // 2. 테이블을 만들었으면 css적용하기
+        // 3. 제어문 적용하기 (for문)
+        // 4. 입력값에 따라서 테이블이 생성되도록 하기
+        var customer = prompt ("입장객");
+        var colNum = prompt ("몇명");
+        var rowNum = Math.ceil(customer/colNum);
+        var count = 1;
+        document.write("<table>");
+        for(var i =0;i<rowNum;i++) {
+            document.write("<tr>");
+            for(var j =0;j< colNum;j++) {
+                document.write("<td>"+count+"</td>");
+                if(count== 11)break;
+                if(count== 12)break;
+                count++;
+            }
+            document.write("</tr>")
+        }
+        document.write("</table>")
+</script>
+</body>
+</html>

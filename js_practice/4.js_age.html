@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나이 계산하기</title>
+</head>
+<body>
+    <div id="result"></div>
+        
+        <!-- 2023년 현재
+        1992년에 태어난 사람의 나이는 32세입니다. -->
+    <script>
+        //1입력 받는창
+        //2입련받는 값을 사용하기 위해 변수를 선언 후 값을 넣어줌
+        //3나이를 계산함
+        //-2023울 그대로 쓰지 않고 변수 로 처리함
+        //4. 계산괸 나이가 사라지지않도록 변수 age에 1저장
+        //- 저장후 age라는 값으로 계산된 결과를 사용할 수 있음.
+        //5.age값을 div에 출력해야함
+        //document에ㅓ #result태그 선택 후 값을 넣어줌
+        var birthYear
+        =prompt("당신이 태어난 연도를 입력하세요(yyyy)");
+        var currentYear = 2023;
+        var age = currentYear - birthYear;
+        var divTag = document.querySelector("#result");
+        divTag.innerHTML = currentYear + "1111년 현재<br>"+birthYear+"년에 태어난 사람은 만"+age+"세 입니다.";
+    </script>
+</body>
+</html>
