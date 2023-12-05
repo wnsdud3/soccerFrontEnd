@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery filter() 메소드 2</title>
+    
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th,td {
+            border: 1px solid black;
+        }
+        </style>
+        <script src="./jquery-3.7.1.min.js"></script>
+    <script>
+        function clear() {
+            $("table td").css("color", "black");
+        }
+        window.onload = function() {
+            var tdTags = $("td");
+            console.log("tdTags");
+            
+            $("#click1").on("click",function() {
+                clear();
+                // $("td").eq(1).css("color","red");
+                $("tr:eq(1)").children("td").not(".first-child").css("color","red");
+                // $("td").eq(4).css("color","black");
+                // $("td").eq(5).css("color","black");
+
+                // alert("click1");
+            });
+        
+        $("#click2").on("click",function() {
+            clear();
+            $("tr:eq(2)").children("td").not(".first-child").css("color","red");
+
+            // $("td").eq(4).css("color","red");
+            // $("td").eq(5).css("color","red");
+            // $("td").eq(1).css("color","black");
+            // $("td").eq(2).css("color","black");
+            // alert("click2");
+            });
+        }
+        function click3(){
+            clear();
+            $("table td").css("color","black");
+            $("td").eq(1).css("color","red");
+            $("td").eq(4).css("color","red");
+            $("td").eq(2).css("color","black");
+            $("td").eq(5).css("color","black");
+
+
+
+
+            // alert("click3")
+        }
+        function click4(){
+            clear();
+            $("td").eq(2).css("color","red");
+            $("td").eq(5).css("color","red");
+            // alert("click4")
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>구분</th>
+            <th>A</th>
+            <th>B</th>
+        </tr>
+        <tr>
+            <td>가</td>
+            <td>10</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>나</td>
+            <td>20</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>계</td>
+            <td>30</td>
+            <td>30</td>
+        </tr>
+    </table>
+    <input type="button" value="[가]색 변경" id="click1">
+    <input type="button" value="[나]색 변경" id="click2">
+    <input type="button" value="[A]색 변경" onclick="click3();">
+    <input type="button" value="[B]색 변경" onclick="click4();">
+
+    
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery filter() 메소드 ㅂ</title>
+    <script src=></script>
+    <script src="./jquery-3.7.1.min.js"></script>
+
+</head>
+<body>
+    <ol>
+        <li class="first"><h2>1-1</h2></li>
+        <li class="second"><h2>1-2</h2></li>
+        <li class="first"><h2>1-3</h2></li>
+    </ol>
+    <ul>
+        <li class="third"><h2>2-1</h2></li>
+        <li class="second"><h2>2-2</h2></li>
+        <li class="third"><h2>2-3</h2></li>
+    </ul>
+    <script>
+        var h2Tag = $(".first").first().css("color", "red")
+        var h2Tag = $(".first").last().css("color", "yellow")
+        var h2Tag = $(".second").eq(0).css("color", "orange")
+        var h2Tag = $(".second").eq(1).css("color", "blue")
+        var h2Tag = $(".third").first().css("color", "green")
+        var h2Tag = $(".third").eq(1).css("color", "purple")
+    </script>
+</body>
+</html>

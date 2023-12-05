@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 유효성체크</title>
+    <style>
+        fieldset {
+            width: 400px;
+            height: 400px;
+        }
+        #container {
+            width: 500px;
+            text-align: center;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <script src="../../jquery_exercise/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(function() {
+            $("form").on("submit", function() {
+                var idReg = /^[a-z][a-z0-9]{3,12}/g;
+                var idVal = $("#member-id").val();
+                var pwReg = /[A-Za-z0-9]{8,12}/;
+                var pwVal = $("#member-pw").val();
+                var nameReg = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]{1,}/;
+                var nameVal = $("#member-name").val();
+                var addrReg = /[a-zA-ZZ]{1,}/;
+                var addrVal = $("#member-addr").val();
+                var postReg = /\d{3}$/;
+                var postVall = $("#post_1").val();
+                var postVal2 = $("#post_2").val();
+                var emailReg = /^[a-zA-Z]{4,12}@$/;
+                var emailVal = $("#member-email").val();
+                var phoneReg;
+                if(addrVal == "") {
+                    alert("주소에는 공백이 불가합니다");
+                    return false;
+                }
+                
+                if(!idReg.test(idVal)) {
+                    alert("영어소문자/숫자만 입력하시고 4~12자리  소문자로 시작해야합니다.")
+                    return false;
+                }else if(!pwReg.test(pwVal)) {
+                    alert("8~12자리로 영어 대/소문자 숫자만 입력해야합니다.")
+                    return false;
+                }else if(!nameReg.test(nameVal)) {
+                    alert("한글만 가능합니다.한글로 입력해주세요")
+                    return false;
+                }else if(addrReg.test(addrVal)) {
+                    alert("주소에는 영어사용이 불가합니다")
+                    return false;
+                }else if(!postReg.test(postVall)||!postReg.test(postVal2)) {
+                    alert("숫자만 입력 가능합니다.");
+                    return false;
+                }else if(!emailReg.test(emailVal)) {
+                    alert("이메일 아이디는 영문자,숫자 4~12자리로 입력해야합니다")
+                    return false;
+                }else if(!(/^010$/).test($("#tel1").val())) {
+                    alert("폰번호는 010으로 시작해야합니다.,");
+                    return false;
+                }else if(!(/^\d{3,4}$/).test($("#tel2"))) {
+                    alert("두번째 필드는 3~4자리여야 합니다.")
+                    return false;
+                }else if(!(/^\d{4}$/).test($("#tel3"))) {
+                    alert("세번째 필드는 4자리여야 합니다.")
+                    return false;
+                }
+            })
+        })
+    </script>
+    문제 <br>
+    회원가입 시 필드마다 유효성 검사를 하여 처리할 수 있도록 만들어라. <br>
+    1. ID는 영어 소문자/숫자만 가능해야함 (4~12자리이며 소문자로 시작해야함) <br>
+    2. Pw <br> 영어 대/소문자, 숫자만 입력가능해야함 (8~12자리) <br>
+    3. PW와 PW_re는 같아야함 <br>
+    4. Name은 무조건 한글만 가능해야함 (최소2글자 이상) <br>
+    5. 주소에는 영어 사용 불가(공백 불가) <br>
+    6. 우편번호는 무조건 숫자만 입력 가능해야함 <br>
+    7. 이메일은 @가 포함되어야함 (@앞에가 영문자, 숫자로 4~12글자)
+    8. 전화번호 첫번째 필드는 010만 입력가능 <br>
+    두번째 필드는 3자리 이상 입력가능해야함 <br>
+    세번째 필드는 무조건 4가지 입력해야함 <br>
+    (단, 모두 숫자만 가능해야함)
+    <div id="container">
+        <fieldset>
+            <legend>회원가입</legend>
+            <form action="/member/join.do" method="post">
+                ID : <input type="text" id="member-id"> <br>
+                PW : <input type="password" id="member-pw"> <br>
+                PW_re : <input type="password" id="member-pw-re"> <br>
+                Name : <input type="text" id="member-name"><br>
+                ADDRESS : <input type="text" id="member-addr"> <br>
+                POST NUMBER : <input type="text" size="5" id="post_1">
+                - <input type="text" size="5" id="post_2"> <br>
+                EMAIL : <input type="text" id="member-email"> <br>
+                PHONE : <input type="text" id="tel" size="2" maxlength="4">
+                - <input type="text" id="tel2" size="2" maxlength="4">
+                - <input type="text" id="tel3" size="2" maxlength="4">
+                <input type="submit" value="작성완료">
+            </form>
+        </fieldset>
+    </div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 이벤트 실습2</title>
+    <style>
+        div {
+            border : 2px solid #222;
+            width : 100px;
+            height : 100px;
+            margin : 5px;
+            float : left;
+        }
+        fieldset {
+            width : 800px;
+            margin : 30px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <script>
+        $(function() {
+            var color = "";
+            $("div[id^=img]").on("click", function() {
+                color = $(this).css("background-color");
+            });
+            // $("#img2").on("click", function() {
+            //     color = $(this).css("background-color");
+            // });
+            $("div[id$=th]").on("click", function() {
+                    $(this).css("background-color", color);
+                });
+
+            // for(var i = 1; i < 8; i++) {
+            //     $("#"+i+"th").on("click", function() {
+            //         $(this).css("background-color", color);
+            //     });
+            // }
+            // $("#2th").on("click", function() {
+            //     $(this).css("background-color", color);
+            // });
+            // $("#3th").on("click", function() {
+            //     $(this).css("background-color", color);
+            // });
+            // $("#4th").on("click", function() {
+            //     $(this).css("background-color", color);
+            // });
+            // $("#5th").on("click", function() {
+            //     $(this).css("background-color", color);
+            // });
+            // $("#6th").on("click", function() {
+            //     $(this).css("background-color", color);
+            // });
+            // $("#7th").on("click", function() {
+            //     $(this).css("background-color", color);
+            // });
+        });
+    </script>
+    문제 <br>
+    다음 2개의 색깔 중 선택한 색깔이 복사될 수 있도록 구현하여라 <br>
+    <fieldset>
+        <legend>2개의 색깔 중 선택하시오</legend>
+        <div id="img1" style="background-color: red;"></div>
+        <div id="img2" style="background-color: blue;"></div>
+        <div id="img3" style="background-color: green;"></div>
+        <div id="img4" style="background-color: gold;"></div>
+    </fieldset>
+    <fieldset>
+        <legend>복사되는 공간</legend>
+        <div id="1th"></div>
+        <div id="2th"></div>
+        <div id="3th"></div>
+        <div id="4th"></div>
+        <div id="5th"></div>
+        <div id="6th"></div>
+        <div id="7th"></div>
+    </fieldset>
+    <button id="reset">초기화</button>
+</body>
+</html>
